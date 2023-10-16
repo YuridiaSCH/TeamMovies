@@ -10,20 +10,33 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import environ
+import os
+
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_#xmheu5dlan^8z33a%8o-)h%6d+^bl=^@l4vhkr(y!4-x%yj*'
+#SECRET_KEY = 'django-insecure-_#xmheu5dlan^8z33a%8o-)h%6d+^bl=^@l4vhkr(y!4-x%yj*'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['webcita.ddns.net','100.24.206.233']
 
@@ -75,14 +88,21 @@ WSGI_APPLICATION = 'mymovies.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "django_bootstrap",
-        "USER": "ubuntu",
-        "PASSWORD": "12345",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    }
+        #"default": {
+        #"ENGINE": "django.db.backends.postgresql",
+        #"NAME": "django_bootstrap",
+        #"USER": "ubuntu",
+        #"PASSWORD": "12345",
+        #"HOST": "127.0.0.1",
+        #  "PORT": "5432",
+        #}
+        'default': env.db(),
+
+    # read os.environ['SQLITE_URL']
+    'extra': env.db_url(
+        'SQLITE_URL',
+        default='sqlite:////tmp/my-tmp-sqlite.db'
+    )
 }
 
 
