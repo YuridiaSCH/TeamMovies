@@ -38,7 +38,7 @@ SECRET_KEY = env('SECRET_KEY')
 #DEBUG = True
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['webcita.ddns.net','100.24.206.233']
+ALLOWED_HOSTS = ['webcita.ddns.net','54.237.249.7']
 
 
 # Application definition
@@ -97,12 +97,6 @@ DATABASES = {
         #  "PORT": "5432",
         #}
         'default': env.db(),
-
-    # read os.environ['SQLITE_URL']
-    'extra': env.db_url(
-        'SQLITE_URL',
-        default='sqlite:////tmp/my-tmp-sqlite.db'
-    )
 }
 
 
