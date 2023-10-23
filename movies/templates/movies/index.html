@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    
+<head>
+    
+    <title>Mis peliculas</title>
+    <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="bg-[url('/img/asientos.jpg')] bg-cover">
+
+    <section class="w-[90%] max-w-md mx-auto
+    bg-white shadow- 2xl place-content-center">
+    
+    <article class="bg-black rounded-b-2xl text-white p-5 ">
+    <h1 class="text-4xl font-bold text-center">MIS PELICULAS</h1><br> 
+    </article>
+    </section>
+
+
+    <br>
+
+    <section class="w-[80%] max-w-md mx-auto">
+        <article class=" rounded-b-2xl rounded-t-2xl text-black p-5">
+
+            {% if movie_list %}
+            <ul class="text-lg" >
+                {% for movie in movie_list %}
+                    <li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+             
+        </article>
+    </section>>
+
+
+    <div class="text-center place-content-center">
+    
+    <section class="w-[80%] max-w-md mx-auto">
+    <article class="bg-amber-500 rounded-b-2xl rounded-t-2xl text-white p-5">
+    <br><p class="text-2xl font-bold">PELICULAS NO DISPONIBLES</p> 
+    {% endif %} 
+    </article>
+    </section>
+
+    </div>
+
+</body>
+</html>
