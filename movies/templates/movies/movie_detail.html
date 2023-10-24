@@ -13,8 +13,9 @@
   
 
         <header>
-            <section class="w-[70%] max-w-md mx-auto place-content-center bg-amber-500 rounded-b-2xl rounded-t-2xl">
-            <h1 class="font-medium text-2xl font-bold font-verdana text-center text-white">Las Chicas Super Poderosas</h1>
+            <section class="w-[30%] max-w-md mx-auto place-content-center bg-amber-300 rounded-b-2xl rounded-t-2xl"><br>
+            <h1 class="font-medium text-4xl font-bold font-verdana text-center text-black">Las Chicas Super Poderosas</h1>
+            <br>
             </section>
         </header>
 
@@ -27,17 +28,41 @@
         <br>
         </section>
         
-        <h1 class="text-center"> Duracion: {{movie.running_time}} min</h1>
-        <h1 class="text-center">Genero(s):
-                {% for genre in movie.genres.all %}
+        <section class="w-[70%] max-w-md mx-auto place-content-center">
+        <h1 class="text-center bg-white rounded-b-xl rounded-t-xl text-black p-5 text-2xl font-bold"> Duracion:</h1>
+        <br>
+        <h1 class="bg-black rounded-b-xl rounded-t-xl text-white p-5 text-xl text-center"> {{movie.running_time}} min</h1>
+        </section>
+        <br>
+        <br>
+
+
+        <section class="w-[90%] max-w-md mx-auto place-content-center">
+        <h1 class="text-center bg-white rounded-b-xl rounded-t-xl text-black p-5 text-2xl font-bold">
+         Genero(s):
+        </h1>
+        <br>
+        <h1 class="text-center bg-black rounded-b-xl rounded-t-xl text-white p-5">
+            {% for genre in movie.genres.all %}
                 <p class="px-1"> {{genre.name}}</p>
                 {% endfor %}  </h1>
+        </section>
         
-        <h1 class="text-center"> Presupuesto: $ {{ movie.budget }} Unidades Monetarias</h1>
-        <h1 class="text-center"> Recaudacion: $ {{ movie.revenue }} Unidades Monetarias</h1>
+        <br>
 
-            <img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt="">
+        <section class="w-[90%] max-w-md mx-auto place-content-center bg-white rounded-b-xl rounded-t-xl text-black p-5">
 
+        <h1 class="text-center text-2xl font-bold"> Presupuesto: </h1>
+        <h1 class="text-center"> $ {{ movie.budget }} Unidades Monetarias</h1> <br>
+        <h1 class="text-center text-2xl font-bold"> Recaudacion: </h1>
+        <h1 class="text-center"> $ {{ movie.revenue }} Unidades Monetarias</h1>
+        </section>
+
+        <br>
+
+        <section class="w-[90%] max-w-md mx-auto place-content-center">
+            <div class="place-content-center"><img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt=""></div>
+        </section>
         <br> 
         
         <h1 class="text-center"> {{SINOPSIS}} </h1>
@@ -50,14 +75,17 @@
 
           <br>
           <br>
-
-        <h1 class="text-center"> REPARTO </h1>
+        
+        <section class="w-[90%] max-w-md mx-auto place-content-center bg-gray-200 rounded-b-xl rounded-t-xl text-black p-5 font-bold">
+        <h1 class="text-center text-4xl"> REPARTO </h1> <br>
         <h1 class="text-center">
         {% for credit in credits %}
-            <p class="font-bold"> Actor: {{ credit.person.name }}</p>
+            <br><p class="font-bold"> Actor: {{ credit.person.name }}</p> 
             <p>Trabajo: {{ credit.job.name }}</p>
         {% endfor %} </h1>
-
+        </section>
+        
+        <br>
         <section class="w-[70%]  mx-auto place-content-center">
         <footer class="text-5xl font-bold text-center">
             <div class="bg-black rounded-b-xl rounded-t-xl text-3xl font-sm text-center text-white">
