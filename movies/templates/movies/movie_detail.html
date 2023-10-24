@@ -9,24 +9,46 @@
     </head>
 
 
-    <body class="font-sans max-w-4xl mx-auto">
+    <body class= "tracking-wider bg-contain"style="background-image:url('https://cdn.pixabay.com/photo/2015/06/22/22/41/texture-818125_960_720.png');"></body>
+  
 
-        <header class="h-12 w-full mx-auto mt-5 border-b-2 border-sky-500 ">
-            <h1 class="font-medium text-3xl font-bold font-times-new-roman text-center">MIS PELICULAS</h1>
+        <header>
+            <section class="w-[70%] max-w-md mx-auto place-content-center bg-amber-500 rounded-b-2xl rounded-t-2xl">
+            <h1 class="font-medium text-2xl font-bold font-verdana text-center text-white">MIS PELICULAS</h1>
+            </section>
         </header>
 
-        <div class="bg-lime-300 rounded-b 2xl flex h-[32rem] bg-slate-200 my-4 text-center ">
-        <h1> {{ movie.title }} ({{ movie.release_date|date:"Y" }})</h1>   
-        
-        <img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt="">
+        <section class="w-[90%] max-w-md mx-auto place-content-center">
+        <br>
+        <div class="bg-black rounded-b-xl rounded-t-xl text-white p-5 text-2xl">
+        <h1 class="text-center"> {{ movie.title }} </h1> 
+        <h1 class="text-center"> ({{ movie.release_date|date:"Y" }})</h1>   
         </div>
-        <p> {{ movie.overview }} </p>
+        <br>
+        </section>
 
+            <img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt="">
 
+        <br> 
+
+        <section class="w-[60%]  mx-auto place-content-center">
+        <div class="bg-black rounded-b-xl rounded-t-xl text-white p-5">
+        <p class="text-2xl text-justify"> {{ movie.overview }} </p>
+        </div>
+        </section>
+
+          <br>
+          <br>
+
+        
+        <section class="w-[70%]  mx-auto place-content-center">
         <footer class="text-5xl font-bold text-center">
-            <p class="text-4xl font-sm text-center text=white" > Proyecto de ejemplo de la materia Programación Web</p>
+            <div class="bg-black rounded-b-xl rounded-t-xl text-3xl font-sm text-center text-white">
+            <p> Proyecto de ejemplo de la materia Programación Web</p>
             <p><a href="https://github.com/YuridiaSCH/TeamMovies"> GitHub Repository</a></p>
+            </div>
         </footer>
+        </section>
 
     </body>
 </html>

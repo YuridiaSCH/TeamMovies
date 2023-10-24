@@ -8,13 +8,13 @@
     <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
 </head>"
 
-<body class= "font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover"style="background-image:url('https://i.pinimg.com/564x/74/3a/9b/743a9b5390c5957a6b3dc3a0879d4c40.jpg');">
+<body class= "tracking-wider bg-contain"style="background-image:url('https://cdn.pixabay.com/photo/2015/06/22/22/41/texture-818125_960_720.png');">
 
     <section class="w-[90%] max-w-md mx-auto
     bg-white shadow- 2xl place-content-center">
     
-    <article class="bg-black rounded-b-2xl text-green-600 p-5 ">
-    <h1 class="text-4xl font-times-new-romantext-center"> TEAM MOVIES YURIDIA <h1><br> 
+    <article class="bg-black rounded-b-2xl text-white p-5 font-bold text-center ">
+    <h1 class="text-4xl font-times-new-romantext-center"> TEAM MOVIES "LAS CHICAS SUPER PODEROSAS" <h1><br> 
     </article>
     </section>
 
@@ -22,12 +22,15 @@
     <br>
 
     <section class="w-[80%] max-w-md mx-auto">
-        <article class="bg-amber-500 rounded-b-2xl rounded-t-2xl text-black p-5 text-center">
+        <article class="bg-black rounded-b-2xl rounded-t-2xl text-black p-5 text-center">
 
             {% if movie_list %}
-            <ul class="text-lg" >
+            <ul class="text-2xl text-white font-bold" >
+                
                 {% for movie in movie_list %}
-                    <li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
+                    <li><a href="/movies/{{ movie.id }}/" class="mr-4 hover:underline md:mr-6">{{ movie.title }}</a></li>
+                
+                    <li><img src="{% static 'movies/assets/img'|add:movie.poster_path %}" class="mr-4 hover:underline md:mr-6" alt=""></li>
                 {% endfor %}
             </ul>
         {% else %}
