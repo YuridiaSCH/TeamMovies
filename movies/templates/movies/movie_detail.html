@@ -14,7 +14,7 @@
 
         <header>
             <section class="w-[70%] max-w-md mx-auto place-content-center bg-amber-500 rounded-b-2xl rounded-t-2xl">
-            <h1 class="font-medium text-2xl font-bold font-verdana text-center text-white">MIS PELICULAS</h1>
+            <h1 class="font-medium text-2xl font-bold font-verdana text-center text-white">Las Chicas Super Poderosas</h1>
             </section>
         </header>
 
@@ -26,26 +26,43 @@
         </div>
         <br>
         </section>
+        
+        <h1 class="text-center"> Duracion: {{movie.running_time}} min</h1>
+        <h1 class="text-center">Genero(s):
+                {% for genre in movie.genres.all %}
+                <p class="px-1"> {{genre.name}}</p>
+                {% endfor %}  </h1>
+        
+        <h1 class="text-center"> Presupuesto: $ {{ movie.budget }} Unidades Monetarias</h1>
+        <h1 class="text-center"> Recaudacion: $ {{ movie.revenue }} Unidades Monetarias</h1>
 
             <img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt="">
 
         <br> 
+        
+        <h1 class="text-center"> {{SINOPSIS}} </h1>
 
         <section class="w-[60%]  mx-auto place-content-center">
         <div class="bg-black rounded-b-xl rounded-t-xl text-white p-5">
-        <p class="text-2xl text-justify"> {{ movie.overview }} </p>
+            <p class="text-2xl text-justify">{{ movie.overview }} </p>
         </div>
         </section>
 
           <br>
           <br>
 
-        
+        <h1 class="text-center"> REPARTO </h1>
+        <h1 class="text-center">
+        {% for credit in credits %}
+            <p class="font-bold"> Actor: {{ credit.person.name }}</p>
+            <p>Trabajo: {{ credit.job.name }}</p>
+        {% endfor %} </h1>
+
         <section class="w-[70%]  mx-auto place-content-center">
         <footer class="text-5xl font-bold text-center">
             <div class="bg-black rounded-b-xl rounded-t-xl text-3xl font-sm text-center text-white">
-            <p> Proyecto de ejemplo de la materia Programación Web</p>
-            <p><a href="https://github.com/YuridiaSCH/TeamMovies"> GitHub Repository</a></p>
+            <p> Link Repositorio</p>
+            <p><a href="https://github.com/YuridiaSCH/TeamMovies"> TeamMovies</a></p>
             </div>
         </footer>
         </section>
