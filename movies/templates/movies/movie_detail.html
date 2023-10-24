@@ -5,28 +5,27 @@
         <title>{{movie.title}}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{% static 'movies/assets/css/output' %}" rel="stylesheet">
+        <link href="{% static '/movies/assets/css/output.css' %}"rel="stylesheet">
     </head>
 
 
     <body class="font-sans max-w-4xl mx-auto">
 
         <header class="h-12 w-full mx-auto mt-5 border-b-2 border-sky-500 ">
-            <h1 class="font-medium text-3xl font-bold font-times-new-roman">MIS PELICULAS</h1>
+            <h1 class="font-medium text-3xl font-bold font-times-new-roman text-center">MIS PELICULAS</h1>
         </header>
 
-        <div class="flex h-[32rem] bg-slate-200 my-4">
-        <h1> {{ movie.title }} ({{ movie.release_date|date:"Y" }}) </h1>   
+        <div class="bg-lime-300 rounded-b 2xl flex h-[32rem] bg-slate-200 my-4 text-center ">
+        <h1> {{ movie.title }} ({{ movie.release_date|date:"Y" }})</h1>   
         
         <img src="{% static 'movies/assets/img'|add:movie.poster_path %}" alt="">
         </div>
-        
         <p> {{ movie.overview }} </p>
 
 
         <footer class="text-5xl font-bold text-center">
-            <p class="text-4xl font-bold text-center"> Proyecto de ejemplo de la materia Programación Web</p>
-            <p><a href="github.com\miusuario\elrepo"> GitHub Repository</a></p>
+            <p class="text-4xl font-sm text-center text=white" > Proyecto de ejemplo de la materia Programación Web</p>
+            <p><a href="https://github.com/YuridiaSCH/TeamMovies"> GitHub Repository</a></p>
         </footer>
 
     </body>
